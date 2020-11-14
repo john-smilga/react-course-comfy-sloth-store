@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/products_reducer'
 import {
+  SIDEBAR_OPEN,
+  SIDEBAR_CLOSE,
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
@@ -13,6 +15,7 @@ import {
 const products_url = 'https://course-api.com/react-store-products'
 
 const initialState = {
+  isSidebarOpen: false,
   products_loading: false,
   products_error: false,
   products: [],
@@ -26,6 +29,13 @@ const ProductsContext = React.createContext()
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const openSidebar = () => {
+    dispatch({ type: SIDEBAR_OPEN })
+  }
+  const closeSidebar = () => {
+    dispatch({ type: SIDEBAR_CLOSE })
+  }
 
   const fetchProducts = async (url) => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
@@ -53,7 +63,9 @@ export const ProductsProvider = ({ children }) => {
   }, [])
 
   return (
-    <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
+    <ProductsContext.Provider
+      value={{ ...state, openSidebar, closeSidebar, fetchSingleProduct }}
+    >
       {children}
     </ProductsContext.Provider>
   )

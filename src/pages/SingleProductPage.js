@@ -14,7 +14,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`)
-  }, [fetchSingleProduct, id])
+  }, [id])
   useEffect(() => {
     console.log(error)
     if (error) {
@@ -22,7 +22,7 @@ const SingleProductPage = () => {
         history.push('/')
       }, 3000)
     }
-  }, [error, history])
+  }, [error])
   if (loading) {
     return <h1>Loading...</h1>
   }
