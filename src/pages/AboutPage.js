@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const AboutPage = () => {
   return (
     <Wrapper className='page'>
-      <div className='section'>
+      <div className='section-center'>
         <div className='title'>
           <h2>our story</h2>
           <div className='underline'></div>

@@ -25,15 +25,16 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
-  width: 175px;
+  align-items: center;
+  width: 200px;
 
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1rem;
+    font-size: 1.25rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+
     align-items: center;
   }
   .cart-container {
@@ -42,6 +43,7 @@ const Wrapper = styled.div`
     position: relative;
     svg {
       height: 1.6rem;
+      margin-left: 5px;
     }
   }
   .cart-value {
@@ -64,7 +66,7 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1rem;
+    font-size: 1.25rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
