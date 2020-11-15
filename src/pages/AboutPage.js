@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 const AboutPage = () => {
   return (
-    <Wrapper>
-      <div className='content section'>
+    <Wrapper className='page'>
+      <div className='section'>
         <div className='title'>
           <h2>our story</h2>
           <div className='underline'></div>
@@ -24,16 +24,12 @@ const AboutPage = () => {
   )
 }
 const Wrapper = styled.main`
-  min-height: calc(100vh - 10rem);
-  .content {
-    padding-top: 8rem;
-    p {
-      line-height: 2;
-      max-width: 45em;
-      margin: 0 auto;
-      margin-top: 2rem;
-      color: var(--clr-grey-5);
-    }
+  p {
+    line-height: 2;
+    max-width: 45em;
+    margin: 0 auto;
+    margin-top: 2rem;
+    color: var(--clr-grey-5);
   }
 `
 export default AboutPage

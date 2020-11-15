@@ -162,3 +162,7 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+.page {
+  min-height: calc(100vh - 10rem);
+  padding: 5rem 0;
+}

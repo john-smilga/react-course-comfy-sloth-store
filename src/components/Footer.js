@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <Container>
-      <h4>&copy;ComfySloth {new Date().getFullYear()}</h4>
+      <h4>&copy; ComfySloth {new Date().getFullYear()}</h4>
     </Container>
   )
 }
@@ -17,6 +17,7 @@ const Container = styled.footer`
   h4 {
     color: var(--clr-white);
     margin-bottom: 0;
+    font-weight: 400;
   }
 `
 

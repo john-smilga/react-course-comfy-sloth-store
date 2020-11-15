@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 const ErrorPage = () => {
   return (
-    <Container>
+    <Wrapper className='page'>
       <div className='content'>
         <h1>404</h1>
         <h3>Sorry, the page you tried cannot be found</h3>
@@ -11,12 +11,11 @@ const ErrorPage = () => {
           back home
         </Link>
       </div>
-    </Container>
+    </Wrapper>
   )
 }
 
-const Container = styled.main`
-  min-height: calc(100vh - 10rem);
+const Wrapper = styled.main`
   background: var(--clr-primary-10);
   display: flex;
   justify-content: center;

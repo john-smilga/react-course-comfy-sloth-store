@@ -6,42 +6,48 @@ import { useProductsContext } from '../context/products_context'
 const CartButton = () => {
   const { closeSidebar } = useProductsContext()
   return (
-    <Container className='cart-btn-wrapper'>
+    <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
         Cart
         <span className='cart-container'>
           <FaShoppingCart />
-          <span className='cart-value'>1</span>
+          <span className='cart-value'>12</span>
         </span>
       </Link>
       <button type='button' className='auth-btn'>
         Login <FaUserMinus />
       </button>
-    </Container>
+    </Wrapper>
   )
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 175px;
+
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
   }
   .cart-container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     position: relative;
-    margin-left: 5px;
-
     svg {
       height: 1.6rem;
-      margin-bottom: -4px;
     }
   }
   .cart-value {
     position: absolute;
-    top: -6px;
-    right: -14px;
+    top: -8px;
+    right: -12px;
     background: var(--clr-primary-5);
     width: 16px;
     height: 16px;
@@ -49,20 +55,21 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: var(--clr-white);
-    padding: 12px;
+    padding: 10px;
   }
   .auth-btn {
+    display: flex;
+    align-items: center;
     background: transparent;
     border-color: transparent;
-    margin-left: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
     svg {
-      margin-bottom: -4px;
+      margin-left: 5px;
     }
   }
 `

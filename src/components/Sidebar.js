@@ -79,7 +79,7 @@ const SidebarContainer = styled.div`
   .links a {
     display: block;
     text-align: left;
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-transform: capitalize;
     padding: 1rem 1.5rem;
     color: var(--clr-grey-3);
@@ -107,6 +107,9 @@ const SidebarContainer = styled.div`
   }
   .show-sidebar {
     transform: translate(0);
+  }
+  .cart-btn-wrapper {
+    margin: 2rem auto;
   }
   @media screen and (min-width: 992px) {
     .sidebar {

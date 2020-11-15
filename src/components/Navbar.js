@@ -52,7 +52,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 200px;
+      width: 175px;
     }
   }
   .nav-toggle {
@@ -87,7 +87,7 @@ const NavContainer = styled.nav`
       }
       a {
         color: var(--clr-grey-3);
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-transform: capitalize;
         letter-spacing: var(--spacing);
         padding: 0.5rem;
@@ -97,7 +97,7 @@ const NavContainer = styled.nav`
       }
     }
     .cart-btn-wrapper {
-      display: block;
+      display: grid;
     }
   }
 `
