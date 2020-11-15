@@ -58,18 +58,21 @@ const Wrapper = styled.section`
     .img-container {
       display: block;
       position: relative;
+      height: 600px;
     }
     .main-img {
       width: 100%;
+      height: 100%;
       position: relative;
       border-radius: var(--radius);
       display: block;
+      object-fit: cover;
     }
     .accent-img {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 300px;
+      width: 250px;
       transform: translateX(-50%);
       border-radius: var(--radius);
     }
