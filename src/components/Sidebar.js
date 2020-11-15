@@ -101,12 +101,13 @@ const SidebarContainer = styled.div`
     width: 100%;
     height: 100%;
     background: var(--clr-white);
-    box-shadow: var(--clr-red-dark);
     transition: var(--transition);
     transform: translate(-100%);
+    z-index: -1;
   }
   .show-sidebar {
     transform: translate(0);
+    z-index: 999;
   }
   .cart-btn-wrapper {
     margin: 2rem auto;
