@@ -44,7 +44,7 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
   }
   @media (min-width: 992px) {
-    min-height: 60vh;
+    height: calc(100vh - 5rem);
     padding: 5rem 0;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
