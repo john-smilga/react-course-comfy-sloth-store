@@ -88,6 +88,8 @@ const SidebarContainer = styled.div`
   }
 
   .links a:hover {
+    padding: 1rem 1.5rem;
+    padding-left: 2rem;
     background: var(--clr-grey-10);
     color: var(--clr-grey-2);
   }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <Container>
-      <h4>&copy;Comfy Sloth {new Date().getFullYear()}</h4>
+      <h4>&copy;ComfySloth {new Date().getFullYear()}</h4>
     </Container>
   )
 }

@@ -26,6 +26,7 @@ const Container = styled.div`
     color: var(--clr-grey-1);
     font-size: 1.5rem;
     letter-spacing: var(--spacing);
+    color: var(--clr-grey-1);
   }
   .cart-container {
     display: inline-block;
@@ -58,7 +59,7 @@ const Container = styled.div`
     margin-left: 1.5rem;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--clr-primary-5);
+    color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
     svg {
       margin-bottom: -4px;
