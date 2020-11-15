@@ -50,7 +50,7 @@ const FeaturedProducts = () => {
 const Wrapper = styled.section`
   background: var(--clr-grey-10);
   .featured {
-    margin-top: 4rem;
+    margin: 4rem auto;
     display: grid;
     gap: 2.5rem;
   }
@@ -63,11 +63,11 @@ const Wrapper = styled.section`
   footer h5,
   footer p {
     margin-bottom: 0;
+    font-weight: 400;
   }
 
   footer p {
     color: var(--clr-primary-5);
-    font-weight: 600;
     letter-spacing: var(--spacing);
   }
   .container {
