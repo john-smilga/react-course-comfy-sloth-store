@@ -77,7 +77,7 @@ const Wrapper = styled.section`
   }
   img {
     width: 100%;
-    height: 250px;
+    height: 225px;
     display: block;
     object-fit: cover;
     border-radius: var(--radius);
