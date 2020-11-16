@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
 
@@ -20,12 +21,14 @@ const Nav = () => {
           </button>
         </div>
         <ul className='nav-links'>
-          <li>
-            <Link to='/about'>about</Link>
-          </li>
-          <li>
-            <Link to='/products'>products</Link>
-          </li>
+          {links.map((link) => {
+            const { id, text, url } = link
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            )
+          })}
           <li>
             <Link to='/checkout'>checkout</Link>
           </li>
@@ -83,7 +86,7 @@ const NavContainer = styled.nav`
       display: flex;
       justify-content: center;
       li {
-        margin: 0 1rem;
+        margin: 0 0.5rem;
       }
       a {
         color: var(--clr-grey-3);
