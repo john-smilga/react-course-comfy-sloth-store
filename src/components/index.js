@@ -4,4 +4,15 @@ import CartButtons from './CartButtons'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Hero from './Hero'
-export { FeaturedProducts, Navbar, CartButtons, Footer, Sidebar, Hero }
+import Services from './Services'
+import Contact from './Contact'
+export {
+  FeaturedProducts,
+  Navbar,
+  CartButtons,
+  Footer,
+  Sidebar,
+  Hero,
+  Services,
+  Contact,
+}
