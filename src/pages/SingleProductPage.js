@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
 import { single_product_url as url } from '../utils/constants'
 import { formatPrice } from '../utils/helpers'
-import { Loading, Error, ProductImages } from '../components'
+import { Loading, Error, ProductImages, AddToCart } from '../components'
 import styled from 'styled-components'
 const SingleProductPage = () => {
   const { id } = useParams()
@@ -40,6 +40,7 @@ const SingleProductPage = () => {
     id: sku,
     company,
     image: images,
+    colors,
   } = product
   return (
     <Wrapper className='page'>
@@ -52,7 +53,7 @@ const SingleProductPage = () => {
           <p className='desc'>{description}</p>
           <p className='info'>
             <span>Available : </span>
-            {stock ? 'In stock' : 'out of stock'}
+            {stock > 0 ? 'In stock' : 'out of stock'}
           </p>
           <p className='info'>
             <span>SKU :</span>
@@ -62,6 +63,15 @@ const SingleProductPage = () => {
             <span>Brand :</span>
             {company}
           </p>
+          {stock > 0 && (
+            <AddToCart
+              colors={colors}
+              id={sku}
+              name={name}
+              image={images[0]}
+              price={price}
+            />
+          )}
         </section>
       </div>
     </Wrapper>
@@ -89,6 +99,7 @@ const Wrapper = styled.main`
       font-weight: 700;
     }
   }
+
   @media (min-width: 992px) {
     .product-center {
       grid-template-columns: 1fr 1fr;
