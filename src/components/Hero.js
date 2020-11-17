@@ -42,6 +42,7 @@ const Wrapper = styled.section`
     max-width: 45em;
     margin-bottom: 2rem;
     color: var(--clr-grey-5);
+    font-size: 1rem;
   }
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
@@ -49,6 +50,9 @@ const Wrapper = styled.section`
     gap: 8rem;
     h1 {
       margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1.25rem;
     }
     .hero-btn {
       padding: 0.5rem 1rem;

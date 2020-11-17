@@ -40,9 +40,7 @@ const Wrapper = styled.section`
   padding: 5rem 0;
 
   background: var(--clr-primary-10);
-  .header p {
-    font-size: 1.25rem;
-  }
+
   .header h3 {
     margin-bottom: 2rem;
   }
