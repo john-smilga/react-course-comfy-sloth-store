@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 const ProductImages = ({ images = [[]] }) => {
   const [main, setMain] = useState(images[0])
