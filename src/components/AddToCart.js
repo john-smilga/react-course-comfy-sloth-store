@@ -98,17 +98,14 @@ const Wrapper = styled.section`
   }
   .btn-container {
     margin-top: 2rem;
-    display: flex;
-    align-items: center;
   }
   .amount-btns {
     display: grid;
-    width: 100px;
-    text-align: center;
+    width: 140px;
+    justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
     align-items: center;
-    margin-right: 1rem;
+    margin-bottom: 1rem;
     button {
       background: transparent;
       border-color: transparent;
@@ -123,6 +120,9 @@ const Wrapper = styled.section`
   }
   h2 {
     margin-bottom: 0;
+  }
+  .btn {
+    width: 140px;
   }
 `
 export default AddToCart

@@ -3,11 +3,18 @@ import styled from 'styled-components'
 const Filters = () => {
   return (
     <Wrapper>
-      <h4>filters</h4>
+      <div className='content'>
+        <h4>filters</h4>
+      </div>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.section``
+const Wrapper = styled.section`
+  .content {
+    position: sticky;
+    top: 1rem;
+  }
+`
 
 export default Filters

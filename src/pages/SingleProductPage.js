@@ -42,7 +42,7 @@ const SingleProductPage = () => {
     reviews,
     id: sku,
     company,
-    image: images,
+    images,
     colors,
   } = product
   return (

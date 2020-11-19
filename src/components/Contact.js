@@ -37,7 +37,8 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
   }
   .contact-form {
-    width: 500px;
+    width: 90vw;
+    max-width: 500px;
     display: grid;
     grid-template-columns: 1fr auto;
   }
