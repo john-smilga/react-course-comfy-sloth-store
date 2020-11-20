@@ -6,6 +6,8 @@ import {
   SET_LISTVIEW,
   UPDATE_SORT,
   SORT_PRODUCTS,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
 } from '../actions'
 import { useProductsContext } from './products_context'
 
@@ -13,9 +15,9 @@ const initialState = {
   filtered_products: [],
   all_products: [],
   grid_view: true,
-  sort: 'all',
+  sort: 'price-lowest',
   filters: {
-    name: '',
+    text: '',
     company: 'all',
     category: 'all',
     colors: 'all',
@@ -35,8 +37,9 @@ export const FilterProvider = ({ children }) => {
   }, [products])
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS })
     dispatch({ type: SORT_PRODUCTS })
-  }, [state.sort])
+  }, [state.sort, state.filters])
   // functions
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW })
@@ -50,9 +53,17 @@ export const FilterProvider = ({ children }) => {
     const value = e.target.value
     dispatch({ type: UPDATE_SORT, payload: value })
   }
+  const updateFilters = (e) => {
+    let name = e.target.name
+    let value = e.target.value
+    if (name === 'category' || name === 'company') {
+      value = e.target.textContent
+    }
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
+  }
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateSort }}
+      value={{ ...state, setGridView, setListView, updateSort, updateFilters }}
     >
       {children}
     </FilterContext.Provider>

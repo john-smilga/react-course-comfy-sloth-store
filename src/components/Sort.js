@@ -38,7 +38,6 @@ const Sort = () => {
           onChange={updateSort}
           className='sort-input'
         >
-          <option value='default'>default</option>
           <option value='price-lowest'>price (lowest)</option>
           <option value='price-highest'>price (highest)</option>
           <option value='name-a'>name (a - z)</option>
