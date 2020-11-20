@@ -61,6 +61,10 @@ const Wrapper = styled.section`
     .btn-container {
       width: 50px;
     }
+    label {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
   }
   @media (min-width: 768px) {
     column-gap: 2rem;
