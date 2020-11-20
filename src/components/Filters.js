@@ -78,10 +78,6 @@ const Filters = () => {
 }
 
 const Wrapper = styled.section`
-  .content {
-    position: sticky;
-    top: 1rem;
-  }
   .form-control {
     margin-bottom: 1.25rem;
     h5 {
@@ -102,7 +98,7 @@ const Wrapper = styled.section`
   button {
     display: block;
     margin: 0.25em 0;
-    padding: 0.25rem;
+    padding: 0.25rem 0;
     text-transform: capitalize;
     background: transparent;
     border: none;
@@ -113,6 +109,12 @@ const Wrapper = styled.section`
   }
   .active {
     border-color: var(--clr-grey-5);
+  }
+  @media (min-width: 768px) {
+    .content {
+      position: sticky;
+      top: 1rem;
+    }
   }
 `
 

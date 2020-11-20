@@ -53,7 +53,10 @@ const Wrapper = styled.section`
   grid-template-columns: auto auto 1fr auto;
   align-items: center;
   margin-bottom: 2rem;
-  column-gap: 2rem;
+  column-gap: 0.5rem;
+  @media (min-width: 768px) {
+    column-gap: 2rem;
+  }
   p {
     text-transform: capitalize;
     margin-bottom: 0;

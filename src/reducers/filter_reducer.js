@@ -78,7 +78,7 @@ const filter_reducer = (state, action) => {
     let tempProducts = [...all_products]
     if (text) {
       tempProducts = tempProducts.filter((product) =>
-        product.name.toLowerCase().includes(text)
+        product.name.toLowerCase().startsWith(text)
       )
     }
     if (category !== 'all') {
