@@ -54,6 +54,14 @@ const Wrapper = styled.section`
   align-items: center;
   margin-bottom: 2rem;
   column-gap: 0.5rem;
+  @media (max-width: 576px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+    .btn-container {
+      width: 50px;
+    }
+  }
   @media (min-width: 768px) {
     column-gap: 2rem;
   }
@@ -61,17 +69,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     margin-bottom: 0;
   }
-  .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
-    align-items: center;
-  }
+
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
