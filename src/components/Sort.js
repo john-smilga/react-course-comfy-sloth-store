@@ -53,7 +53,7 @@ const Wrapper = styled.section`
   grid-template-columns: auto auto 1fr auto;
   align-items: center;
   margin-bottom: 2rem;
-  column-gap: 0.5rem;
+  column-gap: 2rem;
   @media (max-width: 576px) {
     display: grid;
     grid-template-columns: 1fr;

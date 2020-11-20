@@ -45,6 +45,16 @@ const Wrapper = styled.section`
   .active {
     border: 2px solid var(--clr-primary-5);
   }
+  @media (max-width: 576px) {
+    .main {
+      height: 300px;
+    }
+    .gallery {
+      img {
+        height: 50px;
+      }
+    }
+  }
   @media (min-width: 992px) {
     .main {
       height: 500px;

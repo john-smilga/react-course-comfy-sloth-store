@@ -16,7 +16,7 @@ const filter_reducer = (state, action) => {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
-      filters: { ...state.filters, max_price: maxPrice },
+      filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     }
   }
   if (action.type === SET_GRIDVIEW) {
@@ -74,7 +74,7 @@ const filter_reducer = (state, action) => {
   }
   if (action.type === FILTER_PRODUCTS) {
     const { all_products } = state
-    const { text, category, company } = state.filters
+    const { text, category, company, color, price, shipping } = state.filters
     let tempProducts = [...all_products]
     if (text) {
       tempProducts = tempProducts.filter((product) =>
@@ -91,9 +91,20 @@ const filter_reducer = (state, action) => {
         (product) => product.company === company
       )
     }
-
+    if (color !== 'all') {
+      tempProducts = tempProducts.filter((product) => {
+        return product.colors.find((c) => c === color)
+      })
+    }
+    // filter by price
+    tempProducts = tempProducts.filter((product) => product.price <= price)
+    // filter by shipping
+    if (shipping) {
+      tempProducts = tempProducts.filter((product) => product.shipping === true)
+    }
     return { ...state, filtered_products: tempProducts }
   }
+
   throw new Error(`No Matching "${action.type}" - action type`)
 }
 
