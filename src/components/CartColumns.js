@@ -21,8 +21,9 @@ const Wrapper = styled.div`
     display: block;
     .content {
       display: grid;
-      grid-template-columns: 300px 1fr 1fr 1fr auto;
+      grid-template-columns: 316px 1fr 1fr 1fr auto;
       justify-items: center;
+      column-gap: 1rem;
       h5 {
         color: var(--clr-grey-5);
         font-weight: 400;
