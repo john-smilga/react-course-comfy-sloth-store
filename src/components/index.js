@@ -14,6 +14,8 @@ import Filters from './Filters'
 import ProductList from './ProductList'
 import Sort from './Sort'
 import Stars from './Stars'
+import CartItems from './CartItems'
+
 export {
   FeaturedProducts,
   Navbar,
@@ -31,4 +33,5 @@ export {
   ProductList,
   Sort,
   Stars,
+  CartItems,
 }
