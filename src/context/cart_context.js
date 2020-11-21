@@ -4,6 +4,7 @@ import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
+  CLEAR_CART,
 } from '../actions'
 
 const getLocalStorage = () => {
@@ -41,12 +42,16 @@ export const CartProvider = ({ children }) => {
       },
     })
   }
+  // clear cart
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART })
+  }
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
   }, [state.cart])
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeItem, toggleAmount }}
+      value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}
     >
       {children}
     </CartContext.Provider>

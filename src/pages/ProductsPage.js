@@ -22,7 +22,7 @@ const ProductsPage = () => {
 const Wrapper = styled.main`
   .products {
     display: grid;
-    grid-gap: 1.5rem;
+    gap: 3rem 1.5rem;
     margin: 4rem auto;
   }
   @media (min-width: 768px) {

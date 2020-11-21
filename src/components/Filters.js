@@ -6,11 +6,21 @@ import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
   const {
-    filters: { text, category, company, color, min_price, price, max_price },
+    filters: {
+      text,
+      category,
+      company,
+      color,
+      min_price,
+      price,
+      max_price,
+      shipping,
+    },
     updateFilters,
     all_products,
-    shipping,
+    clearFilters,
   } = useFilterContext()
+
   const categories = getUniqueValues(all_products, 'category')
   const companies = getUniqueValues(all_products, 'company')
   const colors = getUniqueValues(all_products, 'colors')
@@ -136,6 +146,9 @@ const Filters = () => {
           </div>
           {/* end of  shipping */}
         </form>
+        <button type='button' className='clear-btn' onClick={clearFilters}>
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )
@@ -225,6 +238,12 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     column-gap: 0.5rem;
     font-size: 1rem;
+  }
+  .clear-btn {
+    background: var(--clr-red-dark);
+    color: var(--clr-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
   }
   @media (min-width: 768px) {
     .content {
