@@ -37,16 +37,16 @@ const Wrapper = styled.article`
     display: none;
   }
   display: grid;
-  grid-template-columns: 250px auto auto;
+  grid-template-columns: 200px auto auto;
   grid-template-rows: 75px;
-  row-gap: 3rem;
+  gap: 3rem 1rem;
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
   .title {
     height: 100%;
     display: grid;
-    grid-template-columns: 100px 150px;
+    grid-template-columns: 75px 125px;
     align-items: center;
     text-align: left;
     gap: 1rem;
