@@ -1,25 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Filters, ProductList, Sort } from '../components'
+import { Filters, ProductList, Sort, PageHero } from '../components'
 const ProductsPage = () => {
   return (
-    <Wrapper className='page'>
-      <div className='title'>
-        <h2>our products</h2>
-        <div className='underline'></div>
-      </div>
-      <div className='section-center products'>
-        <Filters />
-        <div>
-          <Sort />
-          <ProductList />
+    <main>
+      <PageHero title='products' />
+      <Wrapper className='page'>
+        <div className='section-center products'>
+          <Filters />
+          <div>
+            <Sort />
+            <ProductList />
+          </div>
         </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </main>
   )
 }
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   .products {
     display: grid;
     gap: 3rem 1.5rem;

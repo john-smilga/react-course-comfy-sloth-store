@@ -15,6 +15,7 @@ import ProductList from './ProductList'
 import Sort from './Sort'
 import Stars from './Stars'
 import CartContent from './CarContent'
+import PageHero from './PageHero'
 
 export {
   FeaturedProducts,
@@ -34,4 +35,5 @@ export {
   Sort,
   Stars,
   CartContent,
+  PageHero,
 }
