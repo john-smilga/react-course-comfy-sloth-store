@@ -47,7 +47,7 @@ const SingleProductPage = () => {
     images,
   } = product
   return (
-    <Wrapper className='page'>
+    <Wrapper className='page-100'>
       <div className='section-center'>
         <Link to='/products' className='btn'>
           back to products
