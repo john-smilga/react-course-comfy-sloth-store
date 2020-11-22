@@ -3,15 +3,17 @@ import { FaShoppingCart, FaUserMinus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
+import { useCartContext } from '../context/cart_context'
 const CartButton = () => {
   const { closeSidebar } = useProductsContext()
+  const { total_items } = useCartContext()
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
         Cart
         <span className='cart-container'>
           <FaShoppingCart />
-          <span className='cart-value'>12</span>
+          <span className='cart-value'>{total_items}</span>
         </span>
       </Link>
       <button type='button' className='auth-btn'>
@@ -26,11 +28,11 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
-  width: 200px;
+  width: 225px;
 
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
@@ -48,8 +50,8 @@ const Wrapper = styled.div`
   }
   .cart-value {
     position: absolute;
-    top: -8px;
-    right: -12px;
+    top: -10px;
+    right: -16px;
     background: var(--clr-primary-5);
     width: 16px;
     height: 16px;
@@ -59,14 +61,14 @@ const Wrapper = styled.div`
     border-radius: 50%;
     font-size: 0.75rem;
     color: var(--clr-white);
-    padding: 10px;
+    padding: 12px;
   }
   .auth-btn {
     display: flex;
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

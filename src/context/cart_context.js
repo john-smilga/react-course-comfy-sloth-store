@@ -5,6 +5,7 @@ import {
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
   CLEAR_CART,
+  COUNT_CART_TOTALS,
 } from '../actions'
 
 const getLocalStorage = () => {
@@ -18,6 +19,9 @@ const getLocalStorage = () => {
 
 const initialState = {
   cart: getLocalStorage(),
+  total_items: 0,
+  total_amount: 0,
+  shipping_fee: 534,
 }
 
 const CartContext = React.createContext()
@@ -48,6 +52,7 @@ export const CartProvider = ({ children }) => {
   }
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
+    dispatch({ type: COUNT_CART_TOTALS })
   }, [state.cart])
   return (
     <CartContext.Provider

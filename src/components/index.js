@@ -14,7 +14,7 @@ import Filters from './Filters'
 import ProductList from './ProductList'
 import Sort from './Sort'
 import Stars from './Stars'
-import CartItems from './CartItems'
+import CartContent from './CarContent'
 
 export {
   FeaturedProducts,
@@ -33,5 +33,5 @@ export {
   ProductList,
   Sort,
   Stars,
-  CartItems,
+  CartContent,
 }

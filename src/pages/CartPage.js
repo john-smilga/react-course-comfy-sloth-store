@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
-import { CartItems } from '../components'
+import { CartContent } from '../components'
 const CartPage = () => {
   const { cart } = useCartContext()
   if (cart.length < 1) {
@@ -23,7 +23,7 @@ const CartPage = () => {
         <h2>your cart</h2>
         <div className='underline'></div>
       </div>
-      <CartItems></CartItems>
+      <CartContent></CartContent>
     </Wrapper>
   )
 }

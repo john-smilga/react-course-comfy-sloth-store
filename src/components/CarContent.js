@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
-import CartItem from './CartItem'
 import CartColumns from './CartColumns'
+import CartItem from './CartItem'
+import CartTotals from './CartTotals'
 const CartItems = () => {
   const { cart, clearCart } = useCartContext()
 
@@ -26,7 +27,7 @@ const CartItems = () => {
           clear shopping cart
         </button>
       </div>
-      <footer></footer>
+      <CartTotals />
     </Wrapper>
   )
 }
@@ -34,7 +35,7 @@ const Wrapper = styled.section`
   .link-container {
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0;
+    margin-top: 2rem;
   }
   .link-btn {
     background: transparent;
