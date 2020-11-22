@@ -46,7 +46,7 @@ const Wrapper = styled.section`
     color: var(--clr-white);
     border-radius: var(--radius);
     letter-spacing: var(--spacing);
-    font-weight: 700;
+    font-weight: 400;
     cursor: pointer;
   }
   .clear-btn {

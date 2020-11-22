@@ -9,7 +9,7 @@ const ListView = ({ products }) => {
         const { id, image, name, price, description } = product
         return (
           <article key={id}>
-            <img src={image} />
+            <img src={image} alt={name} />
             <div>
               <h4>{name}</h4>
               <h5 className='price'>{formatPrice(price)}</h5>

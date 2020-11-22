@@ -9,6 +9,7 @@ import {
   Error,
   About,
   Products,
+  PrivateRoute,
 } from './pages'
 function App() {
   return (
@@ -29,9 +30,9 @@ function App() {
           <Products />
         </Route>
         <Route path='/products/:id' children={<SingleProduct />} />
-        <Route path='/checkout'>
+        <PrivateRoute path='/checkout'>
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route path='*'>
           <Error />
         </Route>
