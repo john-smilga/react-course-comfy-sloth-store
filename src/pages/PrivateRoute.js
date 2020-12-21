@@ -1,9 +1,10 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useUserContext } from '../context/user_context'
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const { myUser } = useUserContext()
+  const myUser = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user'))
+    : null
   return (
     <Route
       {...rest}
