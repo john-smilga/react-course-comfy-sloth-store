@@ -14,7 +14,6 @@ export default function CheckoutForm() {
   const elements = useElements()
 
   const createPaymentIntent = async () => {
-    console.log(total_amount)
     const { data } = await axios.post(
       '/api/create-payment-intent',
 
