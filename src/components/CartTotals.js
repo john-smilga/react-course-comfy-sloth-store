@@ -28,9 +28,9 @@ const CartTotals = () => {
             proceed to checkout
           </Link>
         ) : (
-          <Link onClick={loginWithRedirect} className='btn'>
+          <button onClick={loginWithRedirect} className='btn'>
             login
-          </Link>
+          </button>
         )}
       </div>
     </Wrapper>

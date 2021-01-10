@@ -2,4 +2,9 @@
 
 #### Older React Version
 
-Because of hot reloading issues, switched back to older react version.
+#### .env vars
+
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_CLIENT_ID=
+REACT_APP_STRIPE_PUBLIC_KEY=
+REACT_APP_STRIPE_SECRET_KEY=
