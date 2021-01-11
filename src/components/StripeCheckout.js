@@ -11,11 +11,14 @@ import axios from 'axios'
 import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
 import { formatPrice } from '../utils/helpers'
+import { useHistory } from 'react-router-dom'
+
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext()
   const { myUser } = useUserContext()
+  const { history } = useHistory()
   const [succeeded, setSucceeded] = useState(false)
   const [error, setError] = useState(null)
   const [processing, setProcessing] = useState('')
@@ -81,7 +84,8 @@ const CheckoutForm = () => {
       setSucceeded(true)
       setTimeout(() => {
         clearCart()
-      }, 1000)
+        history.push('/')
+      }, 10000)
     }
   }
   return (
@@ -90,6 +94,7 @@ const CheckoutForm = () => {
         <article>
           <h4>Thank you</h4>
           <h4>Your payment was successful!</h4>
+          <h4>You will be redirected to home page shortly</h4>
         </article>
       ) : (
         <article>
