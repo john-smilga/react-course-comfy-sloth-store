@@ -14,13 +14,7 @@ export const UserProvider = ({ children }) => {
   const [myUser, setMyUser] = useState(null)
 
   useEffect(() => {
-    if (user) {
-      setMyUser(user)
-      localStorage.setItem('user', JSON.stringify(user))
-    } else {
-      setMyUser(null)
-      localStorage.setItem('user', null)
-    }
+    setMyUser(user)
   }, [user])
 
   return (

@@ -14,7 +14,7 @@ import { formatPrice } from '../utils/helpers'
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 const CheckoutForm = () => {
-  const { cart, total_amount, shipping_fee } = useCartContext()
+  const { cart, total_amount, shipping_fee, clearCart } = useCartContext()
   const { myUser } = useUserContext()
   const [succeeded, setSucceeded] = useState(false)
   const [error, setError] = useState(null)
@@ -79,12 +79,25 @@ const CheckoutForm = () => {
       setError(null)
       setProcessing(false)
       setSucceeded(true)
+      setTimeout(() => {
+        clearCart()
+      }, 1000)
     }
   }
   return (
     <div>
-      <h4>Hello, {myUser && myUser.name}</h4>
-      <p>Your Total is {formatPrice(total_amount)}</p>
+      {succeeded ? (
+        <article>
+          <h4>Thank you</h4>
+          <h4>Your payment was successful!</h4>
+        </article>
+      ) : (
+        <article>
+          <h4>Hello, {myUser && myUser.name}</h4>
+          <p>Your total is {formatPrice(total_amount)}</p>
+          <p>Test Card Number: 4242 4242 4242 4242</p>
+        </article>
+      )}
       <form id='payment-form' onSubmit={handleSubmit}>
         <CardElement
           id='card-element'

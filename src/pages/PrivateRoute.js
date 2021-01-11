@@ -1,15 +1,14 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const myUser = localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user'))
-    : null
+  const { user } = useAuth0()
   return (
     <Route
       {...rest}
       render={() => {
-        return myUser ? children : <Redirect to='/'></Redirect>
+        return user ? children : <Redirect to='/'></Redirect>
       }}
     ></Route>
   )
