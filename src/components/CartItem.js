@@ -50,7 +50,7 @@ const Wrapper = styled.article`
   margin-bottom: 3rem;
   align-items: center;
   .title {
-    height: 100%;
+    grid-template-rows: 75px;
     display: grid;
     grid-template-columns: 75px 125px;
     align-items: center;
