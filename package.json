@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
+    "airtable-node": "^0.1.20",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "netlify": "^6.0.12",
