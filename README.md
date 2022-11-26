@@ -183,10 +183,21 @@ gap: 2rem;
 #### API KEYS
 
 - Navigate to Docs
-- Get API_KEY and Base ID
-- add both to .env
+- Get API_KEY and Base ID and Table Name
+- add all to .env
 
 ```js
 AIRTABLE_API_KEY=
 AIRTABLE_BASE=
+AIRTABLE_TABLE=
 ```
+
+#### Install Airtable-Node
+
+- already installed in main repo
+
+```sh
+npm i airtable-node
+```
+
+#### Create Another Netlify Function

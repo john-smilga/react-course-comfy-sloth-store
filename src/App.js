@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar, Sidebar, Footer } from './components';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navbar, Sidebar, Footer } from './components'
 import {
   Home,
   SingleProduct,
@@ -11,7 +11,7 @@ import {
   Products,
   PrivateRoute,
   AuthWrapper,
-} from './pages';
+} from './pages'
 function App() {
   return (
     <AuthWrapper>
@@ -37,7 +37,7 @@ function App() {
         <Footer />
       </Router>
     </AuthWrapper>
-  );
+  )
 }
 
-export default App;
+export default App
