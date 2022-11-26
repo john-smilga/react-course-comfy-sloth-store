@@ -116,14 +116,14 @@ components/Hero.js
 components/Logo
 
 ```js
-import styled from 'styled-components';
+import styled from 'styled-components'
 const Logo = () => {
   return (
     <Wrapper>
       <span>Gadget</span>Junkie
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.h3`
   margin-bottom: 0;
@@ -131,9 +131,9 @@ const Wrapper = styled.h3`
   span {
     color: var(--clr-primary-5);
   }
-`;
+`
 
-export default Logo;
+export default Logo
 ```
 
 - replace in Navbar and Sidebar
@@ -174,3 +174,19 @@ gap: 2rem;
 
 - at least 4 product images
 - at least 4 secondary images
+
+#### Create Airtable Account
+
+- setup base and table
+- add products
+
+#### API KEYS
+
+- Navigate to Docs
+- Get API_KEY and Base ID
+- add both to .env
+
+```js
+AIRTABLE_API_KEY=
+AIRTABLE_BASE=
+```
