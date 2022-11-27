@@ -192,12 +192,181 @@ AIRTABLE_BASE=
 AIRTABLE_TABLE=
 ```
 
+#### Serverless Functions
+
+- in functions create
+- products.js
+- single-product.js
+
+```js
+exports.handler = async (event, context, cb) => {
+  return {
+    statusCode: 200,
+    body: 'products route',
+  }
+}
+```
+
+- restart the server "npm run dev"
+- visit
+- [Products](http://localhost:8888/.netlify/functions/products)
+- [Single Product](http://localhost:8888/.netlify/functions/single-product)
+
 #### Install Airtable-Node
 
 - already installed in main repo
 
 ```sh
 npm i airtable-node
+
 ```
 
-#### Create Another Netlify Function
+#### Fetch Products
+
+functions/products
+
+```js
+const dotenv = require('dotenv')
+dotenv.config()
+
+const Airtable = require('airtable-node')
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
+  .base(process.env.AIRTABLE_BASE)
+  .table(process.env.AIRTABLE_TABLE)
+
+exports.handler = async function () {
+  try {
+    const response = await airtable.list({ maxRecords: 200 })
+
+    console.log('#######')
+    console.log(response)
+    console.log('#######')
+
+    return {
+      statusCode: 200,
+      body: 'products route',
+    }
+  } catch (error) {
+    console.log(error)
+    return {
+      statusCode: 500,
+      body: 'There was an error',
+    }
+  }
+}
+```
+
+#### Refactor and Return Products
+
+- structure needs to match !!!
+  [React Store Products](https://www.course-api.com/react-store-products)
+
+```js
+exports.handler = async function () {
+  try {
+    const response = await airtable.list({ maxRecords: 200 })
+
+    products = response.records.map((product) => {
+      const { id, fields } = product
+      const {
+        name,
+        featured,
+        price,
+        colors,
+        company,
+        description,
+        category,
+        shipping,
+        images,
+      } = fields
+      const { url } = images[0]
+      return {
+        id,
+        name,
+        featured,
+        price,
+        colors,
+        company,
+        description,
+        category,
+        shipping,
+        image: url,
+      }
+    })
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(products),
+    }
+  } catch (error) {
+    console.log(error)
+    return {
+      statusCode: 500,
+      body: 'There was an error',
+    }
+  }
+}
+```
+
+#### Change products_url Value
+
+utils/constants.js
+
+```js
+export const products_url = '/.netlify/functions/products'
+// export const products_url = 'https://course-api.com/react-store-products'
+```
+
+#### Fetch Single Product
+
+- structure needs to match !!!
+  [Single Product](https://www.course-api.com/react-store-single-product?id=rec1Ntk7siEEW9ha1)
+
+functions/single-product
+
+```js
+require('dotenv').config()
+const Airtable = require('airtable-node')
+
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
+  .base(process.env.AIRTABLE_BASE)
+  .table(process.env.AIRTABLE_TABLE)
+
+exports.handler = async (event, context, cb) => {
+  const { id } = event.queryStringParameters
+  if (id) {
+    try {
+      let product = await airtable.retrieve(id)
+      if (product.error) {
+        return {
+          statusCode: 404,
+          body: `No product with id: ${id}`,
+        }
+      }
+      product = { id: product.id, ...product.fields }
+      return {
+        statusCode: 200,
+        body: JSON.stringify(product),
+      }
+    } catch (error) {
+      return {
+        statusCode: 500,
+        body: `Server Error`,
+      }
+    }
+  }
+  return {
+    statusCode: 400,
+    body: 'Please provide product id',
+  }
+}
+```
+
+#### Change single_product_url Value
+
+utils/constants.js
+
+```js
+export const single_product_url = `/.netlify/functions/single-product?id=`
+// export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
+```
