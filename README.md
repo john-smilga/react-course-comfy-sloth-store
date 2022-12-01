@@ -266,7 +266,7 @@ exports.handler = async function () {
   try {
     const response = await airtable.list({ maxRecords: 200 })
 
-    products = response.records.map((product) => {
+    const products = response.records.map((product) => {
       const { id, fields } = product
       const {
         name,
@@ -315,6 +315,31 @@ utils/constants.js
 ```js
 export const products_url = '/.netlify/functions/products'
 // export const products_url = 'https://course-api.com/react-store-products'
+```
+
+#### Fetch Single Product - Query Params
+
+```js
+require('dotenv').config()
+const Airtable = require('airtable-node')
+
+const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
+  .base(process.env.AIRTABLE_BASE)
+  .table(process.env.AIRTABLE_TABLE)
+
+exports.handler = async (event, context, cb) => {
+  const { id } = event.queryStringParameters
+  if (id) {
+    return {
+      statusCode: 200,
+      body: 'product',
+    }
+  }
+  return {
+    statusCode: 400,
+    body: 'Please provide product id',
+  }
+}
 ```
 
 #### Fetch Single Product
