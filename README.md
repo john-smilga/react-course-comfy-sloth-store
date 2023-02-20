@@ -116,14 +116,14 @@ components/Hero.js
 components/Logo
 
 ```js
-import styled from 'styled-components'
+import styled from 'styled-components';
 const Logo = () => {
   return (
     <Wrapper>
       <span>Gadget</span>Junkie
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.h3`
   margin-bottom: 0;
@@ -131,9 +131,9 @@ const Wrapper = styled.h3`
   span {
     color: var(--clr-primary-5);
   }
-`
+`;
 
-export default Logo
+export default Logo;
 ```
 
 - replace in Navbar and Sidebar
@@ -203,8 +203,8 @@ exports.handler = async (event, context, cb) => {
   return {
     statusCode: 200,
     body: 'products route',
-  }
-}
+  };
+};
 ```
 
 - restart the server "npm run dev"
@@ -226,34 +226,34 @@ npm i airtable-node
 functions/products
 
 ```js
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require('dotenv');
+dotenv.config();
 
-const Airtable = require('airtable-node')
+const Airtable = require('airtable-node');
 const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE)
-  .table(process.env.AIRTABLE_TABLE)
+  .table(process.env.AIRTABLE_TABLE);
 
 exports.handler = async function () {
   try {
-    const response = await airtable.list({ maxRecords: 200 })
+    const response = await airtable.list({ maxRecords: 200 });
 
-    console.log('#######')
-    console.log(response)
-    console.log('#######')
+    console.log('#######');
+    console.log(response);
+    console.log('#######');
 
     return {
       statusCode: 200,
       body: 'products route',
-    }
+    };
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return {
       statusCode: 500,
       body: 'There was an error',
-    }
+    };
   }
-}
+};
 ```
 
 #### Refactor and Return Products
@@ -264,10 +264,10 @@ exports.handler = async function () {
 ```js
 exports.handler = async function () {
   try {
-    const response = await airtable.list({ maxRecords: 200 })
+    const response = await airtable.list({ maxRecords: 200 });
 
     const products = response.records.map((product) => {
-      const { id, fields } = product
+      const { id, fields } = product;
       const {
         name,
         featured,
@@ -278,8 +278,8 @@ exports.handler = async function () {
         category,
         shipping,
         images,
-      } = fields
-      const { url } = images[0]
+      } = fields;
+      const { url } = images[0];
       return {
         id,
         name,
@@ -291,21 +291,21 @@ exports.handler = async function () {
         category,
         shipping,
         image: url,
-      }
-    })
+      };
+    });
 
     return {
       statusCode: 200,
       body: JSON.stringify(products),
-    }
+    };
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return {
       statusCode: 500,
       body: 'There was an error',
-    }
+    };
   }
-}
+};
 ```
 
 #### Change products_url Value
@@ -313,33 +313,33 @@ exports.handler = async function () {
 utils/constants.js
 
 ```js
-export const products_url = '/.netlify/functions/products'
+export const products_url = '/.netlify/functions/products';
 // export const products_url = 'https://course-api.com/react-store-products'
 ```
 
 #### Fetch Single Product - Query Params
 
 ```js
-require('dotenv').config()
-const Airtable = require('airtable-node')
+require('dotenv').config();
+const Airtable = require('airtable-node');
 
 const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE)
-  .table(process.env.AIRTABLE_TABLE)
+  .table(process.env.AIRTABLE_TABLE);
 
 exports.handler = async (event, context, cb) => {
-  const { id } = event.queryStringParameters
+  const { id } = event.queryStringParameters;
   if (id) {
     return {
       statusCode: 200,
       body: 'product',
-    }
+    };
   }
   return {
     statusCode: 400,
     body: 'Please provide product id',
-  }
-}
+  };
+};
 ```
 
 #### Fetch Single Product
@@ -350,41 +350,41 @@ exports.handler = async (event, context, cb) => {
 functions/single-product
 
 ```js
-require('dotenv').config()
-const Airtable = require('airtable-node')
+require('dotenv').config();
+const Airtable = require('airtable-node');
 
 const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE)
-  .table(process.env.AIRTABLE_TABLE)
+  .table(process.env.AIRTABLE_TABLE);
 
 exports.handler = async (event, context, cb) => {
-  const { id } = event.queryStringParameters
+  const { id } = event.queryStringParameters;
   if (id) {
     try {
-      let product = await airtable.retrieve(id)
+      let product = await airtable.retrieve(id);
       if (product.error) {
         return {
           statusCode: 404,
           body: `No product with id: ${id}`,
-        }
+        };
       }
-      product = { id: product.id, ...product.fields }
+      product = { id: product.id, ...product.fields };
       return {
         statusCode: 200,
         body: JSON.stringify(product),
-      }
+      };
     } catch (error) {
       return {
         statusCode: 500,
         body: `Server Error`,
-      }
+      };
     }
   }
   return {
     statusCode: 400,
     body: 'Please provide product id',
-  }
-}
+  };
+};
 ```
 
 #### Change single_product_url Value
@@ -392,6 +392,6 @@ exports.handler = async (event, context, cb) => {
 utils/constants.js
 
 ```js
-export const single_product_url = `/.netlify/functions/single-product?id=`
+export const single_product_url = `/.netlify/functions/single-product?id=`;
 // export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
 ```
