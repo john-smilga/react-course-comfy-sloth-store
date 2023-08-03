@@ -14,7 +14,7 @@ root.render(
     domain={process.env.REACT_APP_AUTH_DOMAIN}
     clientId={process.env.REACT_APP_CLIENT_ID}
     authorizationParams={{
-      redirect_uri: window.location.origin,
+      redirect_uri: `${window.location.origin}/cart`,
     }}
   >
     <UserProvider>
