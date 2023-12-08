@@ -18,41 +18,41 @@ const products_reducer = (state, action) => {
   }
 
   if (action.type === GET_PRODUCTS_BEGIN) {
-    return { ...state, products_loading: true }
+    return { ...state, isLoadingProducts: true }
   }
   if (action.type === GET_PRODUCTS_SUCCESS) {
-    const featured_products = action.payload.filter(
+    const featuredProducts = action.payload.filter(
       (product) => product.featured === true
     )
     return {
       ...state,
-      products_loading: false,
+      isLoadingProducts: false,
       products: action.payload,
-      featured_products,
+      featuredProducts,
     }
   }
   if (action.type === GET_PRODUCTS_ERROR) {
-    return { ...state, products_loading: false, products_error: true }
+    return { ...state, isLoadingProducts: false, errorFetchingProducts: true }
   }
   if (action.type === GET_SINGLE_PRODUCT_BEGIN) {
     return {
       ...state,
-      single_product_loading: true,
-      single_product_error: false,
+      isLoadingSingleProduct: true,
+      errorFetchingSingleProduct: false,
     }
   }
   if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
     return {
       ...state,
-      single_product_loading: false,
-      single_product: action.payload,
+      isLoadingSingleProduct: false,
+      singleProduct: action.payload,
     }
   }
   if (action.type === GET_SINGLE_PRODUCT_ERROR) {
     return {
       ...state,
-      single_product_loading: false,
-      single_product_error: true,
+      isLoadingSingleProduct: false,
+      errorFetchingSingleProduct: true,
     }
   }
   throw new Error(`No Matching "${action.type}" - action type`)

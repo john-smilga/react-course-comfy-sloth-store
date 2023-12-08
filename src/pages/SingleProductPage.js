@@ -17,9 +17,9 @@ const SingleProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const {
-    single_product_loading: loading,
-    single_product_error: error,
-    single_product: product,
+    isLoadingSingleProduct: loading,
+    errorFetchingSingleProduct: error,
+    singleProduct: product,
     fetchSingleProduct,
   } = useProductsContext();
 

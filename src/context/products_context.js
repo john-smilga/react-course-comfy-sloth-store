@@ -15,13 +15,13 @@ import {
 
 const initialState = {
   isSidebarOpen: false,
-  products_loading: false,
-  products_error: false,
+  isLoadingProducts: false,
+  errorFetchingProducts: false,
   products: [],
-  featured_products: [],
-  single_product_loading: false,
-  single_product_error: false,
-  single_product: {},
+  featuredProducts: [],
+  isLoadingSingleProduct: false,
+  errorFetchingSingleProduct: false,
+  singleProduct: {},
 }
 
 const ProductsContext = React.createContext()
